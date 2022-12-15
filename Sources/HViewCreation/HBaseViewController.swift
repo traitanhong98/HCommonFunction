@@ -30,7 +30,7 @@ open class HBaseViewController: UIViewController {
     
     // MARK: - Funcs
 
-    @objc func backAction() {
+    @objc open func backAction() {
         navigationController?.popViewController(animated: true)
     }
 
