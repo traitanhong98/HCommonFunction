@@ -16,7 +16,7 @@ open class HBaseView: UIView {
         setupView()
     }
     
-    init() {
+    public init() {
         super.init(frame: .zero)
         loadViewFromNib()
         setupView()
