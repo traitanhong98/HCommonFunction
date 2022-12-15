@@ -4,7 +4,7 @@
 
 import UIKit
 
-open class BaseViewController: UIViewController {
+open class HBaseViewController: UIViewController {
     /// To check if controller is displaying on screen or not
     public var isControllerVisible: Bool {
         self.viewIfLoaded?.window != nil
@@ -41,7 +41,7 @@ open class BaseViewController: UIViewController {
     }
 }
 
-open class BaseContentContainerController<ContentView: UIView>: BaseViewController {
+open class HBaseContentContainerController<ContentView: UIView>: HBaseViewController {
     public var contentView: ContentView!
     
     open override func loadView() {
@@ -50,9 +50,11 @@ open class BaseContentContainerController<ContentView: UIView>: BaseViewControll
     }
 }
 
-open class BaseScreenViewController<ContentView: HBaseContentView>: BaseContentContainerController<ContentView> {
+open class HBaseScreenViewController<ContentView: HBaseContentView>: HBaseContentContainerController<ContentView> {
     open override func viewDidLoad() {
         super.viewDidLoad()
-        contentView.backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        if let backButton = contentView.backButton {
+            backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        }
     }
 }
